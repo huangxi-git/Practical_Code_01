@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>大事件-列表页</title>
+    <link rel="stylesheet" href="/admin/libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.pagination.css">
@@ -139,8 +140,8 @@
             <script>
                 $(function () {
                     $("#pagination").pagination({
-                        currentPage: 2,
-                        totalPage: 8,
+                        page: 1,
+                        pages: 8,
                         callback: function (current) {
                             alert('ok!');
                         }
@@ -148,7 +149,34 @@
                 });
             </script> -->
 
+
+            <!-- 分页
+            <nav aria-label="Page navigation" class="fenye">
+                <ul class="pagination">
+                    <li>
+                        <span aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </span>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <span aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </span>
+                    </li>
+                </ul>
+            </nav> -->
+
         </div>
+
+
+
+
+
         <div class="right_con setfl">
             <div class="common_wrap">
                 <h3><i class="fa fa-bar-chart"></i> 一周热门排行</h3>
@@ -261,7 +289,7 @@
     {{ each data}}
     <div class="common_news_list">
         <a href="#" class="list_pic"><img src="{{ $value.cover }}" alt=""></a>
-        <h4><a href="#">{{ $value.title }}</a></h4>
+        <h4><a href="/article.html?={{ $value.id }}">{{ $value.title }}</a></h4>
         <p>{{ $value.intro }}</p>
         <div class="new_info">
             <span>
@@ -278,6 +306,30 @@
     </script>
 
 
+    <!-- 文章搜索模块 -->
+    <script type="text/html" id="search_news">
+    {{ each data}}
+    <div class="common_news_list">
+        <a href="#" class="list_pic"><img src="{{ $value.cover }}" alt=""></a>
+        <h4><a href="/article.html?={{ $value.id }}">{{ $value.title }}</a></h4>
+        <p>{{ $value.intro }}</p>
+        <div class="new_info">
+            <span>
+                标签：{{ $value.category }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-eye"></i>&nbsp;
+                阅读({{ $value.read }})&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-commenting"></i>&nbsp;
+                评论( {{ $value.comments }} )
+            </span>
+            <b>发布于 {{ $value.date }}</b>
+        </div>
+    </div>
+    {{ /each }}
+    </script>
+
+
+
+
     <!-- jq -->
     <script src="/admin/libs/jquery-1.12.4.min.js"></script>
     <!-- baseAPI  -->
@@ -288,8 +340,11 @@
     <script src="/js/list/list_latest_comments.js"></script>
     <!-- 焦点关注 js  -->
     <script src="/js/list/list_focus_list.js"></script>
-    <!-- 最新资讯 js  -->
-    <script src="/js/list/list_latest_news.js"></script>
+    <!-- 搜索 -->
+    <script src="/js/list/list_text_search.js"></script>
+
+    <script src="/admin/libs/bootstrap/js/bootstrap.min.js"></script>
+
 
 </body>
 

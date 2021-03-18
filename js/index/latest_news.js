@@ -1,8 +1,10 @@
 $(function () {
 
     // 最新资讯模块
+
     // 渲染页面
     latestNews();
+
     // 封装函数
     function latestNews() {
         // 发送请求
@@ -20,4 +22,5 @@ $(function () {
             },
         });
     };
+
 });

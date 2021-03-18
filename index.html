@@ -15,11 +15,13 @@
     <!-- 顶部 -->
     <div class="header">
         <a href="#" class="logo fl"><img src="images/logo.png" alt="logo"></a>
+
         <!-- 搜索模块-->
         <div class="search_form fl">
-            <input type="text" class="search_txt" placeholder="黑洞照片">
+            <input type="text" class="search_txt">
             <button class="search_btn"><i class="fa fa-search"></i></button>
         </div>
+
         <div class="link_info fr">
             <a href="#"><i class="fa fa-angle-right"></i>&nbsp;&nbsp;网站地图</a><br>
             <a href="#"><i class="fa fa-angle-right"></i>&nbsp;&nbsp;招聘信息</a>
@@ -82,7 +84,7 @@
 
             <div class="common_title">
                 <h3><i class="fa fa-edit"></i> 最新资讯</h3>
-                <a href="#" class="more"><i class="fa fa-angle-double-right"></i></a>
+                <a href="/list.html" class="more"><i class="fa fa-angle-double-right"></i></a>
             </div>
 
             <div class="common_news">
@@ -254,7 +256,9 @@
     {{ each data}}
     <div class="common_news_list">
         <a href="#" class="list_pic"><img src="{{ $value.cover }}" alt=""></a>
-        <h4><a href="#">{{ $value.title }}</a></h4>
+        <!-- 标题 -->
+        <!-- data-id :保存 id  -->
+        <h4><a href="/article.html?={{ $value.id }}">{{ $value.title }}</a></h4>
         <p>{{ $value.intro }}</p>
         <div class="new_info">
             <span>
@@ -284,7 +288,7 @@
     <!-- 焦点关注模板引擎 -->
     <script type="text/html" id="focus_list">
     {{ each data}}
-    <li><a href="#">{{ $value.intro }}</a></li>
+    <li><a href="">{{ $value.intro }}</a></li>
     {{ /each }}
     </script>
 
@@ -304,8 +308,7 @@
     <script src="/js/index/latest_comments.js"></script>
     <!-- 焦点关注 js  -->
     <script src="/js/index/focus.js"></script>
-    <!-- 文章搜索 js  -->
-    <script src="/js/index/text_search.js"></script>
+
 </body>
 
 </html>
