@@ -12,8 +12,10 @@
 </head>
 
 <body>
+    <!-- 顶部 -->
     <div class="header">
         <a href="#" class="logo fl"><img src="images/logo.png" alt="logo"></a>
+        <!-- 搜索模块-->
         <div class="search_form fl">
             <input type="text" class="search_txt" placeholder="黑洞照片">
             <button class="search_btn"><i class="fa fa-search"></i></button>
@@ -56,7 +58,7 @@
     <div class="main_con clearfix">
         <div class="left_con">
             <ul class="focus_list">
-                <li class="first">
+                <!-- <li class="first">
                     <a href="#"><img src="images/pic01.jpg" alt=""></a>
                     <p>图片说明</p>
                 </li>
@@ -75,7 +77,7 @@
                 <li>
                     <a href="#"><img src="images/pic06.jpg" alt=""></a>
                     <p>图片说明</p>
-                </li>
+                </li> -->
             </ul>
 
             <div class="common_title">
@@ -84,7 +86,7 @@
             </div>
 
             <div class="common_news">
-                <div class="common_news_list">
+                <!-- <div class="common_news_list">
                     <a href="#" class="list_pic"><img src="images/pic09.jpg" alt=""></a>
                     <h4><a href="#">亚马逊金融试水中国？背后却是和华尔街的“金融战争” </a></h4>
                     <p>亚马逊抛弃了中国的买家们，却难以割舍庞大的卖家市场，有消息指出亚马逊中国将针对中国庞大的卖家群体推出一项贷款推荐计划。在连续对印度、墨西哥等新兴市场大力推广线上支付服务后，亚马逊金融试水进军中国市场的信号终于被放出。
@@ -142,7 +144,7 @@
                             )&nbsp;&nbsp;&nbsp;<i class="fa fa-commenting"></i>&nbsp;评论( 10 )</span>
                         <b>发布于 2018-08-30 12:18:58</b>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -150,19 +152,19 @@
             <div class="common_wrap">
                 <h3><i class="fa fa-bar-chart"></i> 一周热门排行</h3>
                 <ul class="content_list hotrank_list">
-                    <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
+                    <!-- <li><span class="first">1</span><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
                     <li><span class="second">2</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span class="third">3</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span>4</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span>5</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><span>6</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><span>7</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                    <li><span>7</span><a href="#">神奇的水滴摄影，泡泡中的世界</a></li> -->
                 </ul>
             </div>
             <div class="common_wrap">
                 <h3><i class="fa fa-commenting-o"></i> 最新评论</h3>
                 <ul class="content_list comment_list">
-                    <li>
+                    <!-- <li>
                         <span>山</span>
                         <b><em>山治</em> 9个月前(08-14)说:</b>
                         <strong>挺会玩的</strong>
@@ -191,19 +193,19 @@
                         <span>乔</span>
                         <b><em>乔峰</em> 9个月前(08-14)说:</b>
                         <strong>挺会玩的</strong>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="common_wrap">
                 <h3><i class="fa fa-bullseye"></i> 焦点关注</h3>
                 <ul class="content_list guanzhu_list">
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
+                    <!-- <li><a href="#">神奇的水滴摄影，泡泡中的世界泡泡中的世界</a></li>
                     <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
                     <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
-                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li>
+                    <li><a href="#">神奇的水滴摄影，泡泡中的世界</a></li> -->
                 </ul>
             </div>
         </div>
@@ -225,8 +227,85 @@
 
     <!-- 导入模板引擎js文件 -->
     <script src="./js/template-web.js"></script>
+
+    <!-- 文章类型 模板引擎 -->
+    <!-- <script type="text/html" id="text_type">
+    </script> -->
+
+    <!-- 热点图模板引擎 -->
+    <script type="text/html" id="heat_map">
+    {{ each data }}
+    <li>
+        <a href="#"><img src="{{ $value.cover }}" alt=""></a>
+        <p>{{ $value.title }}</p>
+    </li>
+    {{ /each }}
+    </script>
+
+    <!-- 热门排行模板引擎 -->
+    <script type="text/html" id="ranking_list">
+    {{ each data }}
+    <li><span>{{ $index+1 }}</span><a href="#">{{ $value.title }}</a></li>
+    {{ /each }}
+    </script>
+
+    <!-- 最新资讯模板引擎 -->
+    <script type="text/html" id="latest_news">
+    {{ each data}}
+    <div class="common_news_list">
+        <a href="#" class="list_pic"><img src="{{ $value.cover }}" alt=""></a>
+        <h4><a href="#">{{ $value.title }}</a></h4>
+        <p>{{ $value.intro }}</p>
+        <div class="new_info">
+            <span>
+                标签：{{ $value.category }}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-eye"></i>&nbsp;
+                阅读({{ $value.read }})&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-commenting"></i>&nbsp;
+                评论( {{ $value.comments }} )
+            </span>
+            <b>发布于 {{ $value.date }}</b>
+        </div>
+    </div>
+    {{ /each }}
+    </script>
+
+    <!-- 最新评论模板引擎 -->
+    <script type="text/html" id="latest_comments">
+    {{ each data}}
+    <li>
+        <span>{{ $value.author.substring(0,1)  }}</span>
+        <b><em>{{ $value.author }}</em> 9个月前( {{ $value.date }} )说:</b>
+        <strong>{{ $value.intro }}</strong>
+    </li>
+    {{ /each }}
+    </script>
+
+    <!-- 焦点关注模板引擎 -->
+    <script type="text/html" id="focus_list">
+    {{ each data}}
+    <li><a href="#">{{ $value.intro }}</a></li>
+    {{ /each }}
+    </script>
+
     <!-- 引入jq文件 -->
     <script src="./js/jquery-1.12.4.min.js"></script>
+    <!-- baseAPI -->
+    <script src="/js/baseAPI.js"></script>
+    <!-- 文章类型 js  -->
+    <!-- <script src="/js/index/text_type.js"></script> -->
+    <!-- 热点图 js  -->
+    <script src="/js/index/heat_map.js"></script>
+    <!-- 热门排行 js  -->
+    <script src="/js/index/ranking_list.js"></script>
+    <!-- 最新资讯 js  -->
+    <script src="/js/index/latest_news.js"></script>
+    <!-- 最新评论 js  -->
+    <script src="/js/index/latest_comments.js"></script>
+    <!-- 焦点关注 js  -->
+    <script src="/js/index/focus.js"></script>
+    <!-- 文章搜索 js  -->
+    <script src="/js/index/text_search.js"></script>
 </body>
 
 </html>
