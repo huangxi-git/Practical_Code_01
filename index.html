@@ -31,16 +31,19 @@
     <div class="menu_con">
         <div class="menu">
             <div class="menu_collapse fl">
+
+                <!-- 分类列表 -->
                 <a href="javascript:;" class="level_one"><i class="fa fa-list-ul"></i>全部分类</a>
                 <ul class="level_two">
-                    <li class="up"></li>
+                    <!-- <li class="up"></li>
                     <li><a href="./list.html">最 新</a></li>
                     <li><a href="./list.html">科 技</a></li>
                     <li><a href="./list.html">股 市</a></li>
                     <li><a href="./list.html">商 品</a></li>
                     <li><a href="./list.html">外 汇</a></li>
-                    <li><a href="./list.html">公 司</a></li>
+                    <li><a href="./list.html">公 司</a></li> -->
                 </ul>
+
             </div>
             <ul class="left_menu fl">
                 <li><a href="#">最 新</a></li>
@@ -230,10 +233,6 @@
     <!-- 导入模板引擎js文件 -->
     <script src="./js/template-web.js"></script>
 
-    <!-- 文章类型 模板引擎 -->
-    <!-- <script type="text/html" id="text_type">
-    </script> -->
-
     <!-- 热点图模板引擎 -->
     <script type="text/html" id="heat_map">
     {{ each data }}
@@ -292,12 +291,18 @@
     {{ /each }}
     </script>
 
+    <!-- 分类列表模板引擎 -->
+    <script type="text/html" id="text_type">
+    <li class="up"></li>
+    {{ each data}}
+    <li data-id='{{ $value.id }}'><a href="JavaScript:;">{{ $value.name }}</a></li>
+    {{ /each }}
+    </script>
+
     <!-- 引入jq文件 -->
     <script src="./js/jquery-1.12.4.min.js"></script>
     <!-- baseAPI -->
     <script src="/js/baseAPI.js"></script>
-    <!-- 文章类型 js  -->
-    <!-- <script src="/js/index/text_type.js"></script> -->
     <!-- 热点图 js  -->
     <script src="/js/index/heat_map.js"></script>
     <!-- 热门排行 js  -->
@@ -308,6 +313,9 @@
     <script src="/js/index/latest_comments.js"></script>
     <!-- 焦点关注 js  -->
     <script src="/js/index/focus.js"></script>
+    <!-- 分类列表 js -->
+    <script src="/js/index/text_type.js"></script>
+
 
 </body>
 
